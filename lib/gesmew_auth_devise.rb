@@ -1,0 +1,5 @@
+require 'gesmew_core'
+require 'gesmew/auth/devise'
+require 'gesmew/authentication_helpers'
+require 'sass/rails'
+require 'coffee_script'

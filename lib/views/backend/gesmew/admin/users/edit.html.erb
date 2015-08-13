@@ -1,0 +1,17 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= Gesmew.t(:editing_user) %></h3>
+    </div>
+    <div class="panel-body">
+      <%= render :partial => 'gesmew/shared/error_messages', :locals => { :target => @user } %>
+      
+      <%= form_for Gesmew::User.new, :as => @user, :url => gesmew.user_path(@user), :method => :put do |f| %>
+        <%= render :partial => 'gesmew/shared/user_form', :locals => { :f => f } %>
+        <p>
+          <%= f.submit Gesmew.t(:update), :class => 'btn btn-primary' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>

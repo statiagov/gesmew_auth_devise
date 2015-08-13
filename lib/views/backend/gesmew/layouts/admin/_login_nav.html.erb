@@ -1,0 +1,25 @@
+<% if gesmew_current_user %>
+  <ul class="nav navbar-nav">
+    <li class="dropdown user user-menu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="glyphicon glyphicon-user"></i>
+        <span><%= gesmew_current_user.email %> <i class="caret"></i></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="user-header bg-light-blue">
+          <p>
+            <%= gesmew_current_user.email %>
+          </p>
+        </li>
+        <li class="user-footer" id="login-nav">
+          <div class="pull-left" data-hook="user-account-link">
+            <%= link_to Gesmew.t(:account), gesmew.edit_user_path(gesmew_current_user), class: "btn btn-default btn-flat" %>
+          </div>
+          <div class="pull-right" data-hook="user-logout-link">
+            <%= link_to Gesmew.t(:logout), gesmew.admin_logout_path, class: "btn btn-default btn-flat" %>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+<% end %>

@@ -1,0 +1,17 @@
+<%= render :partial => 'gesmew/shared/error_messages', :locals => { :target => @gesmew_user } %>
+
+<div id="forgot-password">
+  <h6><%= Gesmew.t(:forgot_password) %></h6>
+
+  <p><%= Gesmew.t(:instructions_to_reset_password) %></p>
+
+  <%= form_for Gesmew::User.new, :as => :gesmew_user, :url => gesmew.reset_password_path do |f| %>
+    <p>
+      <%= f.label :email, Gesmew.t(:email) %><br />
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.submit Gesmew.t(:reset_password), :class => 'button primary' %>
+    </p>
+  <% end %>
+</div>

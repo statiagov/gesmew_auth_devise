@@ -1,0 +1,37 @@
+<h1><%= accurate_title %></h1>
+
+<div data-hook="account_summary" class="account-summary well">
+  <dl id="user-info">
+    <dt><%= Gesmew.t(:email) %></dt>
+    <dd><%= @user.email %> (<%= link_to Gesmew.t(:edit), gesmew.edit_account_path %>)</dd>
+  </dl>
+</div>
+
+<div data-hook="account_my_orders" class="account-my-inspections">
+
+  <h3><%= Gesmew.t(:my_orders) %></h3>
+  <% if @inspections.present? %>
+    <table class="table table-striped inspection-summary">
+      <thead class="active">
+      <tr>
+        <th class="inspection-number"><%= Gesmew::Order.human_attribute_name(:number) %></th>
+        <th class="inspection-date"><%= Gesmew.t(:date) %></th>
+        <th class="inspection-status"><%= Gesmew.t(:status) %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @inspections.each do |inspection| %>
+        <tr>
+          <td class="inspection-number"><%= link_to inspection.number, order_url(inspection) %></td>
+          <td class="inspection-date"><%= l inspection.completed_at.to_date %></td>
+          <td class="inspection-status"><%= Gesmew.t("order_state.#{inspection.state}").titleize %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="alert alert-info"><%= Gesmew.t(:you_have_no_orders_yet) %></div>
+  <% end %>
+  <br />
+
+</div>
