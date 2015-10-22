@@ -75,7 +75,7 @@ def create_admin_user
     #name = prompt_for_admin_name unless name
     email = prompt_for_admin_email
     password = prompt_for_admin_password
-    firstname = promt_for_admin_firstname
+    firstname = prompt_for_admin_firstname
     lastname = prompt_for_admin_lastname
   end
   attributes = {
