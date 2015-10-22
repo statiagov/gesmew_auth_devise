@@ -23,11 +23,11 @@ def prompt_for_admin_email
     email = ENV['ADMIN_EMAIL'].dup
     say "Admin User #{email}"
   else
-    email = ask('Email [gesmew@example.com]: ') do |q|
+    email = ask('Email [mjgumbs.200@gmail.com]: ') do |q|
       q.echo = true
       q.whitespace = :strip
     end
-    email = 'gesmew@example.com' if email.blank?
+    email = 'mjgumbs.200@gmail.com' if email.blank?
   end
 
   email
@@ -68,6 +68,8 @@ def create_admin_user
   if ENV['AUTO_ACCEPT']
     password = 'gesmew123'
     email = 'mjgumbs.200@gmail.com'
+    firstname 'Michail'
+    lastname 'Gumbs'
   else
     puts 'Create the admin user (press enter for defaults).'
     #name = prompt_for_admin_name unless name
