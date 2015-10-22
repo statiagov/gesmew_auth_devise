@@ -42,7 +42,7 @@ def prompt_for_admin_firstname
       q.echo = true
       q.whitespace = :strip
     end
-    firstname = 'Michail' if email.blank?
+    firstname = 'Michail' if firstname.blank?
   end
 
   firstname
@@ -57,7 +57,7 @@ def prompt_for_admin_lastname
       q.echo = true
       q.whitespace = :strip
     end
-    lastname= 'Gumbs' if email.blank?
+    lastname = 'Gumbs' if lastname.blank?
   end
 
   lastname
