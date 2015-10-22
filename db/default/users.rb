@@ -33,6 +33,37 @@ def prompt_for_admin_email
   email
 end
 
+def prompt_for_admin_firstname
+  if ENV['ADMIN_FIRSTNAME']
+    firstname = ENV['ADMIN_FIRSTNAME'].dup
+    say "Admin User #{firstname}"
+  else
+    firstname = ask('First Name [Michail]: ') do |q|
+      q.echo = true
+      q.whitespace = :strip
+    end
+    firstname = 'Michail' if email.blank?
+  end
+
+  firstname
+end
+
+def prompt_for_admin_lastname
+  if ENV['ADMIN_LASTNAME']
+    lastname = ENV['ADMIN_LASTNME'].dup
+    say "Admin User #{lastname}"
+  else
+    lastname = ask('Last Name [Gumbs]: ') do |q|
+      q.echo = true
+      q.whitespace = :strip
+    end
+    lastname= 'Gumbs' if email.blank?
+  end
+
+  lastname
+end
+
+
 def create_admin_user
   if ENV['AUTO_ACCEPT']
     password = 'gesmew123'
@@ -42,10 +73,14 @@ def create_admin_user
     #name = prompt_for_admin_name unless name
     email = prompt_for_admin_email
     password = prompt_for_admin_password
+    firstname = promt_for_admin_firstname
+    lastname = prompt_for_admin_lastname
   end
   attributes = {
     :password => password,
     :password_confirmation => password,
+    :firstname => firstname,
+    :lastname => lastname,
     :email => email,
     :login => email
   }
