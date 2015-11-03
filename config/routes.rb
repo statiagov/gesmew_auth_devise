@@ -10,7 +10,7 @@ Gesmew::Core::Engine.add_routes do
                :path_names => { :sign_out => 'logout' },
                :path_prefix => :user
 
-
+    resources :users, only: [:edit, :update]         
     devise_scope :gesmew_user do
       get '/login' => 'user_sessions#new', :as => :login
       post '/login' => 'user_sessions#create', :as => :create_new_session
