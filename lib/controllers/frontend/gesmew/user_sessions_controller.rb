@@ -14,9 +14,7 @@ class Gesmew::UserSessionsController < Devise::SessionsController
           redirect_to admin_inspections_path
         }
         format.js {
-          render :json => {:user => gesmew_current_user,
-                           :contact_information => gesmew_current_user.contact_information
-                          }
+          render :json => {:user => gesmew_current_user}
         }
       end
     else

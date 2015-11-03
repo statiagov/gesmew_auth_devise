@@ -2,7 +2,7 @@ RSpec.feature 'Sign In', type: :feature, js:true do
 
   background do
     @user = create(:user, email: 'email@person.com', password: 'secret', password_confirmation: 'secret')
-    visit gesmew.login_path
+    visit gesmew.admin_login_path
   end
 
   scenario 'ask user to sign in' do
@@ -29,9 +29,8 @@ RSpec.feature 'Sign In', type: :feature, js:true do
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: 'wrong_password'
     click_button 'Login'
-
+    sleep 5.minutes
     expect(page).to have_text 'Invalid email or password'
-    expect(page).to have_text 'Login'
   end
   it "should store the user previous location" do
     pending("not implemented as yet")

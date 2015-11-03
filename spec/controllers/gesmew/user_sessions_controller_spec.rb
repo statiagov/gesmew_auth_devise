@@ -18,7 +18,6 @@ RSpec.describe Gesmew::UserSessionsController, type: :controller do
           gesmew_post :create, gesmew_user: { email: user.email, password: 'secret' }, format: 'js'
           parsed = ActiveSupport::JSON.decode(response.body)
           expect(parsed).to have_key("user")
-          expect(parsed).to have_key("contact_information")
         end
       end
     end
