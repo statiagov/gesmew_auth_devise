@@ -28,7 +28,7 @@ Gesmew::Core::Engine.add_routes do
     get '/checkout/registration' => 'checkout#registration', :as => :checkout_registration
     put '/checkout/registration' => 'checkout#update_registration', :as => :update_checkout_registration
 
-    # resource :account, :controller => 'users'
+    resource :account, :controller => 'users'
 
     namespace :admin do
       devise_for :gesmew_user,
